@@ -57,14 +57,14 @@ body {
     background: wheat;
 }
 
-#picExFrame {
+#top #picExFrame {
     width: 70%;
     height: 100%;
     position: absolute;
     bottom: 0%;
     left: 15%;
 
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
 }
 
 .pictureEx {
@@ -77,3 +77,37 @@ body {
 .pictureEx img {
     width: 10%;
 }
+
+#middle #gamebar {
+    width: calc(100% - 32px);
+    height: 7%;
+    margin: 0rem 1rem;
+    z-index: 1;
+    position: absolute;
+    top: 0%;
+
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid #000;
+}
+
+#game {
+    width: calc(100% - 32px);
+    height: 93%;
+    margin: 0rem 1rem;
+    position: absolute;
+    top: 7%;
+}
+
+#hole7 {
+    /* 利用大小去調位置，"或是改用div去設定位置和大小" */
+    width: 10%;
+    height: 10%;
+
+    /* background: salmon; */
+}
+
+/* .hole {
+    width: 10%;
+    height: 10%;
+} */
