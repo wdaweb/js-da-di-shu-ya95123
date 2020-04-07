@@ -41,16 +41,19 @@
     </div>
 
     <div id="middle">
-        <!-- 放遊戲畫面到middle -->
+        <!-- *放遊戲畫面到middle -->
         <!-- Game上方(剩餘時間、得分) -->
         <table id="gamebar">
             <tr>
-                <td>目前得分：<span id="text-score">0</span> 分</td>
-                <td>剩餘時間：</span> <span id="text-time">0</span> s</td>
+                <td>
+                    <!-- *之後可以再把span加顏色 -->
+                    目前得分：<span id="text-score">0</span> 分&emsp;&emsp;
+                    剩餘時間：</span> <span id="text-time">0</span> s
+                </td>
             </tr>
         </table>
-        <!-- Game表格 -->
-        <table id="game">
+        <!-- Game地洞表格 -->
+        <table id="game" border="1">
             <tr>
                 <td id="hole7" class="hole"></td>
                 <td id="hole8" class="hole"></td>
