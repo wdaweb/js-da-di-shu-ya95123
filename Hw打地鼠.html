@@ -5,9 +5,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>地鼠打起來</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
 </head>
 
+
 <body>
+    <div id="top">
+        <!-- 目標物圖示 -->
+        <table id="picFrame">
+            <tr>
+                <td class="pictureEx"></td>
+                <td class="pictureEx"></td>
+                <td class="pictureEx"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="left">
+        <p>Rank</p>
+        <!-- 排行榜 -->
+        <table id="rank">
+            <tr>
+                <td>1. <span id="text-highplayer1"></span><span id="text-highscore1"></span></td>
+                <td>2. <span id="text-highplayer2"></span><span id="text-highscore2"></span></td>
+                <td>3. <span id="text-highplayer3"></span><span id="text-highscore3"></span></td>
+                <td>4. <span id="text-highplayer4"></span><span id="text-highscore4"></span></td>
+                <td>5. <span id="text-highplayer5"></span><span id="text-highscore5"></span></td>
+                <td>6. <span id="text-highplayer6"></span><span id="text-highscore6"></span></td>
+                <td>7. <span id="text-highplayer7"></span><span id="text-highscore7"></span></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="middle">
+        <!-- 放遊戲畫面到middle -->
+        <!-- Game上方(剩餘時間、得分) -->
+        <table id="gamebar">
+            <tr>
+                <td>目前得分：<span id="text-score">0</span> 分</td>
+                <td>剩餘時間：</span> <span id="text-time">0</span> s</td>
+            </tr>
+        </table>
+        <!-- Game表格 -->
+        <table id="game">
+            <tr>
+                <td id="hole7" class="hole"></td>
+                <td id="hole8" class="hole"></td>
+                <td id="hole9" class="hole"></td>
+            </tr>
+            <tr>
+                <td id="hole4" class="hole"></td>
+                <td id="hole5" class="hole"></td>
+                <td id="hole6" class="hole"></td>
+            </tr>
+            <tr>
+                <td id="hole1" class="hole"></td>
+                <td id="hole2" class="hole"></td>
+                <td id="hole3" class="hole"></td>
+            </tr>
+        </table>
+        <!-- 開始按鈕 z-index浮上遊戲畫面置中(如果不行改回input:button) -->
+        <div id="btn-start"></div>
+    </div>
+
+    <div id="right">
+        <!-- 工具列表 -->
+        <div class="tool">
+            <div class="pictureTool"></div>
+            <div class="textTool"></div>
+        </div>
+        <div class="tool">
+            <div class="pictureTool"></div>
+            <div class="textTool"></div>
+        </div>
+        <div class="tool">
+            <div class="pictureTool"></div>
+            <div class="textTool"></div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
 
 </body>
 
