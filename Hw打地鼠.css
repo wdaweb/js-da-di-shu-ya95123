@@ -92,17 +92,80 @@ body {
 }
 
 #game {
-    width: calc(100% - 32px);
-    height: 93%;
+    width: calc(100% - 34px);
+    height: calc(93% - 2px );
     margin: 0rem 1rem;
     position: absolute;
     top: 7%;
+    position: relative;
+
+    border: 1px solid #000;
 }
 
 .hole {
-    width: 10%;
-    height: 10%;
+    width: 20%;
     margin: auto;
+    border: 1px solid black;
+}
 
-    background: black;
+.hole img{
+    width: 100%;
+}
+
+#hole7 {
+    position: absolute;
+    left: 5%;
+}
+
+#hole8 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+#hole9 {
+    position: absolute;
+    right: 5%;
+}
+
+#hole4 {
+    position: absolute;
+    left: 5%;
+
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#hole5 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#hole6 {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#hole1 {
+    position: absolute;
+    left: 5%;
+    bottom: 0%;
+}
+
+#hole2 {
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    transform: translateX(-50%);
+}
+
+#hole3 {
+    position: absolute;
+    right: 5%;
+    bottom: 0%;
 }
