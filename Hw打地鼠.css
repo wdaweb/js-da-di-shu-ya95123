@@ -99,15 +99,10 @@ body {
     top: 7%;
 }
 
-#hole7 {
-    /* 利用大小去調位置，"或是改用div去設定位置和大小" */
+.hole {
     width: 10%;
     height: 10%;
+    margin: auto;
 
-    /* background: salmon; */
+    background: black;
 }
-
-/* .hole {
-    width: 10%;
-    height: 10%;
-} */
