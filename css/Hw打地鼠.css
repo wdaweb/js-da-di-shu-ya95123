@@ -18,7 +18,7 @@ body {
     position: absolute;
     top: 0%;
 
-    background: wheat;
+    /* background: wheat; */
 }
 
 #left {
@@ -28,7 +28,7 @@ body {
     top: 12.5%;
     left: 0%;
 
-    background: lightblue;
+    /* background: lightblue; */
 }
 
 #right {
@@ -38,7 +38,7 @@ body {
     top: 12.5%;
     right: 0%;
 
-    background: lightpink;
+    /* background: lightpink; */
 }
 
 #middle {
@@ -48,7 +48,8 @@ body {
     top: 12.5%;
     left: 15%;
 
-    background: rgba(0, 75, 0, 0.356);
+    /* background: rgba(0, 75, 0, 0.356); */
+    background-image: url();
 }
 
 #footer {
@@ -57,7 +58,7 @@ body {
     position: absolute;
     bottom: 0%;
 
-    background: wheat;
+    /* background: wheat; */
 }
 
 /* top內部 */
