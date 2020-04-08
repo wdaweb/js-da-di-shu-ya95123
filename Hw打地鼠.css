@@ -236,8 +236,9 @@ body {
 .pictureTool {
     display: inline-block;
     width: 30%;
-    height: calc(100% - 16px);
-    margin: 8px 0px;
+    height: 100%;
+    /* height: calc(100% - 16px); */
+    /* margin: 8px 0px; */
     float: left;
 
     border: 1px solid #000;
@@ -252,8 +253,9 @@ body {
 .textTool {
     display: inline-block;
     width:68%;
-    height: calc(100% - 16px);
-    margin: 8px 0px;
+    height: 100%;
+    /* height: calc(100% - 16px); */
+    /* margin: 8px 0px; */
     float: right;
 
     border: 1px solid #000;
