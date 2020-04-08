@@ -78,6 +78,23 @@ body {
     width: 10%;
 }
 
+#left p{
+    font-size:2rem ;
+    margin: 8px 0px 8px 0px;
+    text-align: center;
+}
+
+#rank div{
+    font-size: 24px;
+    margin: 0px 8px 16px 8px;
+
+    border: 1px solid #000;
+}
+
+.text-highscore{
+    float: right;
+}
+
 #middle #gamebar {
     width: calc(100% - 32px);
     height: 7%;
