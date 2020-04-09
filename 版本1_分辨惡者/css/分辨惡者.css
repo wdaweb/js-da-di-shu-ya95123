@@ -235,7 +235,6 @@ body {
 }
 
 .pictureTool {
-    display: inline-block;
     width: 30%;
     height: 100%;
     /* height: calc(100% - 16px); */
@@ -252,7 +251,6 @@ body {
 }
 
 .textTool {
-    display: inline-block;
     width:68%;
     height: 100%;
     /* height: calc(100% - 16px); */
