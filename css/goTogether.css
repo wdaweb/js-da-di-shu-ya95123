@@ -81,6 +81,19 @@ body {
 
 }
 
+#left {
+    width: 10%;
+    height: 70%;
+    position: absolute;
+    left: 2%;
+    top: 50%;
+    transform: translate(-2%,-50%);
+
+    background: burlywood;
+    text-align: center;
+}
+
+
 #middle {
     width: 70%;
     height: 70%;
