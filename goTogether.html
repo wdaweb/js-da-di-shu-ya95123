@@ -55,8 +55,14 @@
     </div>
 
     <div id="left">
-        <p style="font-size: 1.5rem; margin:10px 0 10px 0;">排行榜</p>
-        <span>No.1 </span><span id="text-1player">NewPlayer </span><span id="text-1score">70</span><br>
+        <p>排行榜</p>
+        <!-- 設空陣列，用迴圈跑1-7 放進陣列，有比第七名高，就creatElement讓其顯示 -->
+        <div>
+            <span class="text-ranknum">No.1&ensp;</span>
+            <span class="text-rankplayer">NewPlayer</span>
+            <span class="text-rankscore">70</span>
+        </div>
+
     </div>
 
     <div id="right">
@@ -113,6 +119,20 @@
         </table>
     </div>
 
+    <script>
+        // top 剩餘時間、當前分數
+        const timeLeft = document.getElementById("text-timeleft");
+        const score = document.getElementById("text-score");
+
+        // middle 遊戲畫面、地洞
+        const game = document.getElementById("game");
+        const holes = document.getElementsByClassName("hole");
+
+        // left
+        const rankNum = document.getElementsByClassName("text-ranknum");
+        const rankPlayer = document.getElementsByClassName("text-rankplayer");
+        const rankScore = document.getElementsByClassName("text-rankscore");
+    </script>
 
 </body>
 

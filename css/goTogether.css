@@ -89,10 +89,27 @@ body {
     top: 50%;
     transform: translate(-2%,-50%);
 
-    /* background: burlywood; */
-    text-align: center;
     font-size: 1rem;
+    /* background: burlywood; */
 }
+
+#left p{
+    font-size: 1.5rem;
+    margin:10px 0 10px 0;
+    text-align: center;
+
+}
+
+#left div {
+    width: 90%;
+    margin: auto;
+    /* border: 1px solid #000; */
+}
+
+.text-rankscore {
+    float: right;
+}
+
 
 #right {
     width: 10%;
