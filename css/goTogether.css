@@ -93,9 +93,9 @@ body {
     /* background: burlywood; */
 }
 
-#left p{
+.sideP{
     font-size: 1.5rem;
-    margin:10px 0 10px 0;
+    margin:16px 0 16px 0;
     text-align: center;
 
 }
