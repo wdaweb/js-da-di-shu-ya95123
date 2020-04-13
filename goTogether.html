@@ -14,7 +14,7 @@
 <body>
     <div id="top">
         <p id="text-timeleft">30 s</p>
-        <p id="text-score">Score：70 分</p>
+        <p id="text-score">Score：0 分</p>
         <div id="picExframe">
             <table>
                 <tr>
@@ -70,51 +70,51 @@
     </div>
 
     <div id="middle">
-        <table id="game" border="1">
+        <table id="gameFrame" border="1">
             <tr>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
             </tr>
             <tr>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
             </tr>
             <tr>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
             </tr>
             <tr>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
             </tr>
             <tr>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
-                <td class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
+                <td><img src="" alt="" class="hole"></td>
             </tr>
         </table>
     </div>
@@ -127,7 +127,7 @@
         const textScore = document.getElementById("text-score");
 
         // middle 遊戲畫面、地洞
-        const game = document.getElementById("game");
+        const gameFrame = document.getElementById("gameFrame");
         const holes = document.getElementsByClassName("hole");
         const btnStart = document.getElementById("btn-start");
 
@@ -136,6 +136,16 @@
         const textRankPlayer = document.getElementsByClassName("text-rankplayer");
         const textRankScore = document.getElementsByClassName("text-rankscore");
 
+        // 圖片插入區
+        let imgFish = "/images/fish.png";
+        let imgSad = "/images/sad-people.png";
+        let imgSushi = "/images/sushi.png";
+        let imgEgg = "/images/egg.png";
+        let imgRedEvil = "/images/red-evil.png";
+        let imgYellowEvil = "/images/yellow-evil.png";
+        const imgs = [imgFish, imgSad, imgSushi, imgEgg, imgRedEvil, imgYellowEvil];
+
+        // 遊戲變數基本設定區
         let score = 0;
         let inGame = false;
         let timeLeft = 30;
@@ -144,7 +154,27 @@
         let storage = JSON.parse(localStorage.getItem("rankScore"));
         // 要再設定 rank 的分數比較
 
+        btnStart.onclick = () => {
+            // 讓btnStart 消失
+            btnStart.style.display = "none";
+            // 開始遊戲
+            inGame = true;
+            // 重置分數、起始時間
+            score = 0;
+            textScore.innerText = `Score：${score} 分`;
+            timeLeft = 30;
+            textTime.innerText = `${timeLeft} s`;
 
+            // timer = setInterval(game, 2000);
+            // game();
+            holes[2].src = imgFish;
+        }
+
+        // const game = () => {
+        //     for (let hole of holes) {
+        //         hole.classList.
+        //     }
+        // }
     </script>
 
 </body>
