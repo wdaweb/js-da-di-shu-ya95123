@@ -25,7 +25,7 @@ js-da-di-shu-ya95123
    - storage = JSON.parse(localStorage.getItem("rankScore"))
  3. 設定點擊"開始按鈕"後的事件
    - 遊戲開始
-   - 目前得分、畫面是初始狀態
+   - 目前得分、時間、畫面是初始狀態
    - 進入遊戲 function
 
  4. 設定遊戲的 function
