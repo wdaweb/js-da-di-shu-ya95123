@@ -136,6 +136,11 @@
         const textRankPlayer = document.getElementsByClassName("text-rankplayer");
         const textRankScore = document.getElementsByClassName("text-rankscore");
 
+        // 隨機數 function
+        const rand = (min, max) => {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+
         // 圖片插入區
         let imgFish = "/images/fish.png";
         let imgSad = "/images/sad-people.png";
@@ -165,16 +170,17 @@
             timeLeft = 30;
             textTime.innerText = `${timeLeft} s`;
 
-            // timer = setInterval(game, 2000);
-            // game();
-            holes[2].src = imgFish;
+            timer = setInterval(game, 2000);
+            game();
         }
 
-        // const game = () => {
-        //     for (let hole of holes) {
-        //         hole.classList.
-        //     }
-        // }
+        const game = () => {
+            // 清空 hole 圖片
+            for (let hole of holes) {
+                hole.src = "";
+            }
+            holes[2].src = imgFish;
+        }
     </script>
 
 </body>
