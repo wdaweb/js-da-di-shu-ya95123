@@ -58,7 +58,7 @@
         <p class="sideP">排行榜</p>
         <!-- 設空陣列，用迴圈跑1-7 放進陣列，有比第七名高，就creatElement讓其顯示 -->
         <div>
-            <span class="text-ranknum">No.1&ensp;</span>
+            <span class="text-ranknum">1&ensp;</span>
             <span class="text-rankplayer">NewPlayer</span>
             <span class="text-rankscore">70</span>
         </div>
@@ -123,18 +123,28 @@
 
     <script>
         // top 剩餘時間、當前分數
-        const timeLeft = document.getElementById("text-timeleft");
-        const score = document.getElementById("text-score");
+        const textTime = document.getElementById("text-timeleft");
+        const textScore = document.getElementById("text-score");
 
         // middle 遊戲畫面、地洞
         const game = document.getElementById("game");
         const holes = document.getElementsByClassName("hole");
-        const start = document.getElementById("btn-start");
+        const btnStart = document.getElementById("btn-start");
 
         // left
-        const rankNum = document.getElementsByClassName("text-ranknum");
-        const rankPlayer = document.getElementsByClassName("text-rankplayer");
-        const rankScore = document.getElementsByClassName("text-rankscore");
+        const textRankNum = document.getElementsByClassName("text-ranknum");
+        const textRankPlayer = document.getElementsByClassName("text-rankplayer");
+        const textRankScore = document.getElementsByClassName("text-rankscore");
+
+        let score = 0;
+        let inGame = false;
+        let timeLeft = 30;
+        let timer = 0;
+        let rankScore = { name: '', score: 0 };
+        let storage = JSON.parse(localStorage.getItem("rankScore"));
+        // 要再設定 rank 的分數比較
+
+
     </script>
 
 </body>
