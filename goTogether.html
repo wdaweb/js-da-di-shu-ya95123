@@ -180,6 +180,7 @@
             game();
         }
 
+        // 時間線控制
         const timeDes = () => {
             // 遞減時間
             timeLeft--;
@@ -193,18 +194,24 @@
                 for (let hole of holes) {
                     hole.src = "";
                 }
-                // setTimeout為了讓秒數跑到 0s
+                // setTimeout 為了讓秒數跑到 0s
                 setTimeout(() => {
-                    // 讓 btn 出現，原本css設flex，所以這裡也要調回flex，不然會跑版
-                    btnStart.style.display = "flex";
                     // TODO 把alert設定改好看 用div跳
                     alert(`你獲得了 ${score} 分`);
+
+                    // 讓 btn 出現，原本css設flex，所以這裡也要調回flex，不然會跑版
+                    btnStart.style.display = "flex";
+
+                    // 讓剩餘時間調回來
+                    timeLeft = 30;
+                    textTime.innerText = `${timeLeft} s`;
 
                     // TODO 設定排行榜填寫機制
                 }, 100)
             }
         }
 
+        // 遊戲進行
         const game = () => {
             // 清空 hole 圖片
             for (let hole of holes) {
@@ -253,7 +260,7 @@
             }
         }
 
-        // 遊戲點擊事件&分數
+        // 遊戲點擊事件&分數、時間
         for (let hole of holes) {
             hole.onclick = () => {
                 // 魚 +1分 +1秒
