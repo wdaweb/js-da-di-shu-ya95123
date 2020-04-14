@@ -27,7 +27,7 @@
                     <td class="exLeft" rowspan="2"><img class="picEx" src="/images/sushi.png" alt="sushi"></td>
                     <td class="exCalc red">+0分</td>
                     <td class="exLeft" rowspan="2"><img class="picEx" src="/images/egg.png" alt="egg"></td>
-                    <td class="exCalc red">+10分</td>
+                    <td class="exCalc red">+5分</td>
                     <td class="exLeft" rowspan="2"><img class="picEx" src="/images/red-evil.png" alt="red-evil"></td>
                     <td class="exCalc">-1分</td>
                     <td class="exLeft" rowspan="2"><img class="picEx" src="/images/yellow-evil.png" alt="yellow-evil">
@@ -185,14 +185,19 @@
             timeLeft--;
             textTime.innerText = `${timeLeft} s`;
 
-            if (timeLeft == 0) {
+            if (timeLeft <= 0) {
                 inGame = false;
                 clearInterval(timer);
                 clearInterval(gameRound);
-
+                // 清空圖片
+                for (let hole of holes) {
+                    hole.src = "";
+                }
+                // setTimeout為了讓秒數跑到 0s
                 setTimeout(() => {
                     // 讓 btn 出現，原本css設flex，所以這裡也要調回flex，不然會跑版
                     btnStart.style.display = "flex";
+                    // TODO 把alert設定改好看 用div跳
                     alert(`你獲得了 ${score} 分`);
 
                     // TODO 設定排行榜填寫機制
@@ -222,22 +227,69 @@
                 imgp = rand(1, 100);
                 console.log(imgp);
                 if (imgp > 0 && imgp <= 30) {
+                    // 魚 30%
                     holes[jumps[i]].src = imgFish;
                 }
                 else if (imgp > 30 && imgp <= 60) {
+                    // 難過 30%
                     holes[jumps[i]].src = imgSad;
                 }
                 else if (imgp > 60 && imgp <= 67) {
+                    // 壽司 7%
                     holes[jumps[i]].src = imgSushi;
                 }
                 else if (imgp > 67 && imgp <= 70) {
+                    // 彩蛋 3%
                     holes[jumps[i]].src = imgEgg;
                 }
                 else if (imgp > 70 && imgp <= 85) {
+                    // 紅惡 15%
                     holes[jumps[i]].src = imgRedEvil;
                 }
                 else if (imgp > 85 && imgp <= 100) {
+                    // 黃惡 15%
                     holes[jumps[i]].src = imgYellowEvil;
+                }
+            }
+        }
+
+        // 遊戲點擊事件&分數
+        for (let hole of holes) {
+            hole.onclick = () => {
+                // 魚 +1分 +1秒
+                if (inGame && hole.src.includes(imgFish)) {
+                    console.log(hole.src);
+                    score++;
+                    textScore.innerText = `Score：${score} 分`;
+                    timeLeft++;
+                    textTime.innerText = `${timeLeft} s`;
+                }
+                // 難過 +3分
+                else if (inGame && hole.src.includes(imgSad)) {
+                    score += 3;
+                    textScore.innerText = `Score：${score} 分`;
+                }
+                // 壽司 +2秒
+                else if (inGame && hole.src.includes(imgSushi)) {
+                    timeLeft += 2;
+                    textTime.innerText = `${timeLeft} s`;
+                }
+                // 彩蛋 +5分
+                else if (inGame && hole.src.includes(imgEgg)) {
+                    score += 5;
+                    textScore.innerText = `Score：${score} 分`;
+                }
+                // 紅惡 -1分
+                else if (inGame && hole.src.includes(imgRedEvil)) {
+                    score--;
+                    textScore.innerText = `Score：${score} 分`;
+                }
+                // 黃惡 -2分 -1秒
+                else if (inGame && hole.src.includes(imgYellowEvil)) {
+                    score -= 2;
+                    textScore.innerText = `Score：${score} 分`;
+                    timeLeft--;
+                    textTime.innerText = `${timeLeft} s`;
                 }
             }
         }
