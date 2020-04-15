@@ -173,7 +173,7 @@
             // 重置分數、起始時間
             score = 0;
             textScore.innerText = `Score：${score} 分`;
-            timeLeft = 5;
+            timeLeft = 30;
             textTime.innerText = `${timeLeft} s`;
 
             timer = setInterval(timeDes, 1000);
@@ -269,6 +269,7 @@
                 // 魚 +1分 +1秒
                 if (inGame && hole.src.includes(imgFish)) {
                     console.log(hole.src);
+                    hole.src = "/images/translate/fish-love.png"
                     score++;
                     textScore.innerText = `Score：${score} 分`;
                     timeLeft++;
@@ -276,26 +277,32 @@
                 }
                 // 難過 +3分
                 else if (inGame && hole.src.includes(imgSad)) {
+                    hole.src = "/images/translate/love-people.png"
                     score += 3;
                     textScore.innerText = `Score：${score} 分`;
                 }
                 // 壽司 +2秒
                 else if (inGame && hole.src.includes(imgSushi)) {
+                    hole.src = "/images/translate/sushi-eatten.png"
                     timeLeft += 2;
                     textTime.innerText = `${timeLeft} s`;
                 }
                 // 彩蛋 +5分
                 else if (inGame && hole.src.includes(imgEgg)) {
+                    hole.src = "/images/translate/egg-love.png"
                     score += 5;
                     textScore.innerText = `Score：${score} 分`;
                 }
                 // 紅惡 -1分
                 else if (inGame && hole.src.includes(imgRedEvil)) {
+                    // TODO 網子變大的動畫、設定秒數、還原
+                    hole.src = "/images/translate/net.png"
                     score--;
                     textScore.innerText = `Score：${score} 分`;
                 }
                 // 黃惡 -2分 -1秒
                 else if (inGame && hole.src.includes(imgYellowEvil)) {
+                    hole.src = "/images/translate/yellow-evil-black-love.png"
                     score -= 2;
                     textScore.innerText = `Score：${score} 分`;
                     timeLeft--;
