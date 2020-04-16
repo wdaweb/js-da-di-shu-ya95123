@@ -200,28 +200,19 @@
     let gameRound = 0;
     let randJump = 0;
     let jumps = [];
-    let rankScore = [{ name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }];
-    // let storage = "";
-    let storage = JSON.parse(localStorage.getItem("rankScore1"));
-    // TODO 要再設定 rank 的分數比較
-    if (storage != null) {
-      // // 將最高分的"名字"儲存，並修改網頁文字
-      // rankScore[0].name = storage.name;
-      // textRankPlayer[0].innerText = rankScore[0].name;
-      // // 將最高分的"分數"儲存，並修改網頁文字
-      // rankScore[0].score = storage.score;
-      // textRankScore[0].innerText = rankScore[0].score;
-      for (let i = 0; i <= 8; i++) {
-        // storage = JSON.parse(localStorage.getItem(`rankScore${i}`));
-        // 將最高分的"名字"儲存，並修改網頁文字
-        // TODO 要設9個storage
-        rankScore[i].name = storage.name;
-        textRankPlayer[i].innerText = rankScore[i].name;
-        // 將最高分的"分數"儲存，並修改網頁文字
-        rankScore[i].score = storage.score;
-        textRankScore[i].innerText = rankScore[i].score;
+    let rank = [{ name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }];
+    // let storage = JSON.parse(localStorage.getItem("rank1"));
+    let storage = [JSON.parse(localStorage.getItem("rank0")), JSON.parse(localStorage.getItem("rank1")), JSON.parse(localStorage.getItem("rank2")), JSON.parse(localStorage.getItem("rank3")), JSON.parse(localStorage.getItem("rank4")), JSON.parse(localStorage.getItem("rank5")), JSON.parse(localStorage.getItem("rank6")), JSON.parse(localStorage.getItem("rank7")), JSON.parse(localStorage.getItem("rank8"))];
+    for (let i = 0; i <= 8; i++) {
+      if (storage[i] != null) {
+        rank[i].score = storage[i].score;
+        rank[i].name = storage[i].name;
+        textRankScore[i].innerText = rank[i].score;
+        textRankPlayer[i].innerText = rank[i].name;
       }
     }
+
+
 
     // 點擊"開始"
     btnStart.onclick = () => {
@@ -235,130 +226,9 @@
       timeLeft = 3;
       textTime.innerText = `${timeLeft} s`;
 
-      timer = setInterval(timeDes, 1000);
       gameRound = setInterval(game, 2500);
+      timer = setInterval(timeDes, 1000);
       game();
-    }
-
-    // 時間線控制
-    const timeDes = () => {
-      // 遞減時間
-      timeLeft--;
-      textTime.innerText = `${timeLeft} s`;
-
-      // 遊戲結束時
-      if (timeLeft <= 0) {
-        inGame = false;
-        clearInterval(timer);
-        clearInterval(gameRound);
-        // 清空圖片
-        for (let hole of holes) {
-          hole.src = "";
-        }
-
-        // setTimeout 為了讓秒數跑到 0s
-        setTimeout(() => {
-          // TODO 把alert設定改好看 用div跳
-          alert(`你獲得了 ${score} 分`);
-
-          // TODO 進入排行榜(分數大於第9名才會進榜，同分不會進)
-          if (storage == null || score > rankScore[8].score) {
-            let input = prompt("太棒了 ～ 恭喜你進入前 Top 9 ！🎏\n請寫下你的名字，因你是大能的勇者 🤴👸");
-            if (input != null && input.trim() !== '') {
-              // input = prompt("尊貴的勇者請留下你尊貴的大名，好讓我們可以為你慶祝👼");
-              rankScore[0].name = input;
-              rankScore[0].score = score;
-              textRankPlayer[0].innerText = rankScore[0].name;
-              textRankScore[0].innerText = rankScore[0].score;
-              localStorage.setItem(`rankScore1`, JSON.stringify(rankScore[0]));
-
-            }
-
-            // re
-            //超越哪一名就把名字、分數蓋過去
-            // for (let i = 8; i <= 0; i--) {
-            //   if (score > rankScore[i].score && score < rankScore[i + 1].score) {
-            //     // !先把低於分數的人Rank往後擠
-            //     for (let j = i; j <= 7; j++) {
-            //       // 後一名排位 = 原排位的值
-            //       rankScore[j + 1].name = rankScore[j].name;
-            //       rankScore[j + 1].score = rankScore[j].score;
-            //       textRankPlayer[j + 1].innerText = rankScore[j].name;
-            //       textRankScore[j + 1].innerText = rankScore[j].score;
-            //       localStorage.setItem(`rankScore${j + 1}`, JSON.stringify(rankScore[j + 1]));
-
-            //       storage = JSON.parse(localStorage.getItem(`rankScore${j + 1}`));
-            //     }
-
-            //     // 上榜人的資料
-            //     rankScore[i].name = input;
-            //     rankScore[i].score = score;
-            //     // 修改網頁上文字
-            //     textRankPlayer[i].innerText = input;
-            //     textRankScore[i].innerText = score;
-            //     localStorage.setItem(`rankScore${i}`, JSON.stringify(rankScore[i]));
-
-            //     storage = JSON.parse(localStorage.getItem(`rankScore${i}`));
-            //     console.log(storage);
-            //   }
-            //   // 同分狀態(因為是遞增狀態，就算很多同分，也在同分最後)
-            //   else if (score == rankScore[i].score) {
-            //     for (let k = i + 1; k <= 7; k++) {
-            //       // 後兩名排位 = 原後一名的值
-            //       rankScore[k + 1].name = rankScore[k].name;
-            //       rankScore[k + 1].score = rankScore[k].score;
-            //       textRankPlayer[k + 1].innerText = rankScore[k].name;
-            //       textRankScore[k + 1].innerText = rankScore[k].score;
-            //       localStorage.setItem(`rankScore${k + 1}`, JSON.stringify(rankScore[k + 1]));
-
-            //       storage = JSON.parse(localStorage.getItem(`rankScore${k + 1}`));
-            //     }
-
-            //     // 上榜人的資料 (後一名排位 = 當前 input 值)
-            //     rankScore[i + 1].name = input;
-            //     rankScore[i + 1].score = score;
-            //     // 修改網頁上文字
-            //     textRankPlayer[i + 1].innerText = rankScore[i + 1].name;
-            //     textRankScore[i + 1].innerText = rankScore[i + 1].score;
-            //     localStorage.setItem(`rankScore${i + 1}`, JSON.stringify(rankScore[i + 1]));
-
-            //     storage = JSON.parse(localStorage.getItem(`rankScore${i + 1}`));
-            //     console.log(storage);
-            //   }
-            // }
-            //------re 
-
-            // 暴力條件解
-            // if (score > rankScore[8].score && score < rankScore[7].score) {
-            //     rankScore[8].name = input;
-            //     rankScore[8].score = score;
-            //     // 修改網頁上文字
-            //     textRankPlayer[8].innerText = rankScore[8].name;
-            //     textRankScore[8].innerText = rankScore[8].score;
-            // }
-            // else if (score > rankScore[7].score && score < rankScore[6].score) {
-            //     rankScore[7].name = input;
-            //     rankScore[7].score = score;
-            //     // 修改網頁上文字
-            //     textRankPlayer[7].innerText = rankScore[7].name;
-            //     textRankScore[7].innerText = rankScore[7].score;
-            // }
-          }
-          else if (score == rankScore[8].score) {
-            alert("尊貴的勇士，你雖與第9名同分，但尚還不能進榜，請繼續堅持呀 ~ 突破自己💪");
-          }
-
-
-          // 讓 btn 出現，原本css設flex，所以這裡也要調回flex，不然會跑版
-          btnStart.style.display = "flex";
-
-          // 讓剩餘時間調回來
-          timeLeft = 30;
-          textTime.innerText = `${timeLeft} s`;
-
-          // TODO 回到初始圖片 (html也要加初始圖片gif or svg)
-        }, 80)
-      }
     }
 
     // 遊戲進行
@@ -409,6 +279,97 @@
         }
       }
     }
+
+    // 時間線控制
+    const timeDes = () => {
+      // 遞減時間
+      timeLeft--;
+      textTime.innerText = `${timeLeft} s`;
+
+      // 遊戲結束時
+      if (timeLeft <= 0) {
+        inGame = false;
+        clearInterval(timer);
+        clearInterval(gameRound);
+        // 清空圖片
+        for (let hole of holes) {
+          hole.src = "";
+        }
+
+        // setTimeout 為了讓秒數跑到 0s
+        setTimeout(() => {
+          // TODO 把alert設定改好看 用div跳
+          alert(`你獲得了 ${score} 分`);
+
+          // TODO 進入排行榜(分數大於第9名才會進榜，同分不會進)
+          // 進榜對話框
+          if (storage[8] == null || score > rank[8].score) {
+            const input = prompt("太棒了 ～ 恭喜你進入前 Top 9 ！🎏\n請寫下你的名字，因你是尊貴的勇者 🤴👸");
+            // 有留名字才會加進排行榜
+            if (input != null || input.trim() !== '') {
+              // 排行比較
+              for (let i = 0; i <= 8; i++) {
+                if (score > rank[i].score) {
+                  // 先將低於此值的人排名下降
+                  for (let j = 7; j >= i; j--) {
+                    // 下個排名值 = 原本名值
+                    rank[j + 1].score = rank[j].score;
+                    rank[j + 1].name = rank[j].name;
+                    textRankScore[j + 1].innerText = rank[j + 1].score;
+                    textRankPlayer[j + 1].innerText = rank[j + 1].name;
+                    localStorage.setItem(`rank${j + 1}`, JSON.stringify(rank[j + 1]));
+                  }
+
+                  // 將本次值放進該排行
+                  rank[i].score = score;
+                  rank[i].name = input;
+                  textRankScore[i].innerText = rank[i].score;
+                  textRankPlayer[i].innerText = rank[i].name;
+                  localStorage.setItem(`rank${i}`, JSON.stringify(rank[i]));
+                  break;
+                }
+                else if (score == rank[i].score) {
+                  // 先將低於此值的人排名下降
+                  for (let k = 7; k >= i; k--) {
+                    // 下個排名值 = 原本名值
+                    rank[k + 1].score = rank[k].score;
+                    rank[k + 1].name = rank[k].name;
+                    textRankScore[k + 1].innerText = rank[k + 1].score;
+                    textRankPlayer[k + 1].innerText = rank[k + 1].name;
+                    localStorage.setItem(`rank${k + 1}`, JSON.stringify(rank[k + 1]));
+                  }
+
+                  // 將本次值放進該排行
+                  rank[i].score = score;
+                  rank[i].name = input;
+                  textRankScore[i].innerText = rank[i].score;
+                  textRankPlayer[i].innerText = rank[i].name;
+                  localStorage.setItem(`rank${i}`, JSON.stringify(rank[i]));
+                  break;
+                }
+              }
+
+            }
+          }
+          else if (score == rank[8].score) {
+            alert("尊貴的勇士，你雖與第9名同分，但尚還不能進榜，請繼續堅持呀 ~ 突破自己💪");
+          }
+          else if (score < rank[8].score) {
+            alert("加油啊~讓我們努力奔著目標向前 🔥");
+          }
+
+          // 讓 btn 出現，原本css設flex，所以這裡也要調回flex，不然會跑版
+          btnStart.style.display = "flex";
+
+          // 讓剩餘時間調回來
+          timeLeft = 30;
+          textTime.innerText = `${timeLeft} s`;
+
+          // TODO 回到初始圖片 (html也要加初始圖片gif or svg)
+        }, 80);
+      }
+    }
+
 
     // 遊戲點擊事件&分數、時間
     // TODO 被點擊時換圖片、音效
