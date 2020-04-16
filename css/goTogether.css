@@ -28,7 +28,7 @@ body:active{
 #text-timeleft {
     position: absolute;
     top: 50%;
-    left: 3%;
+    left: 2%;
     transform: translateY(-50%);
 
     font-size: 2rem;
@@ -108,6 +108,7 @@ body:active{
 #left div {
     width: 90%;
     margin: auto;
+    padding: 10px 0px 10px 0px;
     /* border: 1px solid #000; */
 }
 
