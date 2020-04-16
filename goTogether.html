@@ -205,12 +205,22 @@
     let storage = JSON.parse(localStorage.getItem("rankScore1"));
     // TODO 要再設定 rank 的分數比較
     if (storage != null) {
-      // 將最高分的"名字"儲存，並修改網頁文字
-      rankScore[0].name = storage.name;
-      textRankPlayer[0].innerText = rankScore[0].name;
-      // 將最高分的"分數"儲存，並修改網頁文字
-      rankScore[0].score = storage.score;
-      textRankScore[0].innerText = rankScore[0].score;
+      // // 將最高分的"名字"儲存，並修改網頁文字
+      // rankScore[0].name = storage.name;
+      // textRankPlayer[0].innerText = rankScore[0].name;
+      // // 將最高分的"分數"儲存，並修改網頁文字
+      // rankScore[0].score = storage.score;
+      // textRankScore[0].innerText = rankScore[0].score;
+      for (let i = 0; i <= 8; i++) {
+        // storage = JSON.parse(localStorage.getItem(`rankScore${i}`));
+        // 將最高分的"名字"儲存，並修改網頁文字
+        // TODO 要設9個storage
+        rankScore[i].name = storage.name;
+        textRankPlayer[i].innerText = rankScore[i].name;
+        // 將最高分的"分數"儲存，並修改網頁文字
+        rankScore[i].score = storage.score;
+        textRankScore[i].innerText = rankScore[i].score;
+      }
     }
 
     // 點擊"開始"
