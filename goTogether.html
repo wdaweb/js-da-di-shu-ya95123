@@ -226,7 +226,7 @@
       // 重置分數、起始時間
       score = 0;
       textScore.innerText = `Score：${score} 分`;
-      timeLeft = 3;
+      timeLeft = 30;
       textTime.innerText = `${timeLeft} s`;
 
       gameRound = setInterval(game, 2500);
@@ -253,32 +253,38 @@
         }
         jumps.push(randJump);
 
-        // 已被選的隨機格子，再隨機選圖片跳出
+        // 已被選的隨機格子，再按機率選圖片跳出
         imgp = rand(1, 100);
         // console.log(imgp);
         if (imgp > 0 && imgp <= 30) {
           // 魚 30%
           holes[jumps[i]].src = imgFish;
+          holes[jumps[i]].style.animation = "hole 2.5s infinite";
         }
         else if (imgp > 30 && imgp <= 60) {
           // 難過 30%
           holes[jumps[i]].src = imgSad;
+          holes[jumps[i]].style.animation = "hole 2.5s infinite";
         }
         else if (imgp > 60 && imgp <= 67) {
           // 壽司 7%
           holes[jumps[i]].src = imgSushi;
+          holes[jumps[i]].style.animation = "hole 2.5s infinite";
         }
         else if (imgp > 67 && imgp <= 70) {
           // 彩蛋 3%
           holes[jumps[i]].src = imgEgg;
+          holes[jumps[i]].style.animation = "hole 2.5s infinite";
         }
         else if (imgp > 70 && imgp <= 85) {
           // 紅惡 15%
           holes[jumps[i]].src = imgRedEvil;
+          holes[jumps[i]].style.animation = "hole 2.5s infinite";
         }
         else if (imgp > 85 && imgp <= 100) {
           // 黃惡 15%
           holes[jumps[i]].src = imgYellowEvil;
+          holes[jumps[i]].style.animation = "hole 2.5s infinite";
         }
       }
     }
