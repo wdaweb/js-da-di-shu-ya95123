@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <!-- TODO 5初始圖片、4背景音效、2CSS圖片動畫、1本機Rank、6alert樣式、3Stop鍵 -->
+  <!-- TODO 5初始圖片、4背景音效、2CSS圖片動畫、OK本機Rank、6alert樣式、3Stop鍵 -->
   <div id="top">
     <p id="text-timeleft">30 s</p>
     <p id="text-score">Score：0 分</p>
@@ -48,7 +48,7 @@
 
   </div>
 
-  <div id="btn-left">></div>
+  <img id="btn-left" src="/images/white-wings-left.png" alt="">
   <div id="left">
     <div>
       <p class="sideP">Top9 排行榜</p>
@@ -100,6 +100,7 @@
     </div>
   </div>
 
+  <img id="btn-right" src="/images/white-wings-right.png" alt="">
   <div id="right">
     <p class="sideP">工具</p>
   </div>
@@ -180,8 +181,10 @@
     // 左右側點擊收合(為了方便先用JQuery)
     $("#btn-left").click(function () {
       $("#left").slideToggle(1000);
-      $("this").css("display", none);
     });
+    $("#btn-right").click(function () {
+      $("#right").slideToggle(1000);
+    })
 
     // 圖片插入區
     let imgFish = "/images/fish.png";
