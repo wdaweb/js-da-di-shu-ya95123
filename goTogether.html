@@ -382,7 +382,7 @@
     // 遊戲點擊事件&分數、時間
     // TODO 被點擊時換圖片、音效
     for (let hole of holes) {
-      hole.onclick = () => {
+      hole.onmousedown = () => {
         // 魚 +1分 +1秒
         if (inGame && hole.src.includes(imgFish)) {
           // console.log(hole.src);
