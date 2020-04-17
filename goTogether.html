@@ -45,14 +45,7 @@
         </tr>
       </table>
     </div>
-    <!-- <div id="picExframe">
-            <div><img class="picEx" src="/images/fish.png" alt="fish"></div>
-            <div><img class="picEx" src="/images/sad-people.png" alt="sad-people"></div>
-            <div><img class="picEx" src="/images/sushi.png" alt="sushi"></div>
-            <div><img class="picEx" src="/images/egg.png" alt="egg"></div>
-            <div><img class="picEx" src="/images/red-evil.png" alt="red-evil"></div>
-            <div><img class="picEx" src="/images/yellow-evil.png" alt="yellow-evil"></div>
-        </div> -->
+
   </div>
 
   <div id="left">
@@ -200,8 +193,7 @@
     let gameRound = 0;
     let randJump = 0;
     let jumps = [];
-    let rank = [{ name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }, { name: '', score: 0 }];
-    // let storage = JSON.parse(localStorage.getItem("rank1"));
+    let rank = [{ name: 'nobody', score: 0 }, { name: 'nobody', score: 0 }, { name: 'nobody', score: 0 }, { name: 'nobody', score: 0 }, { name: 'nobody', score: 0 }, { name: 'nobody', score: 0 }, { name: 'nobody', score: 0 }, { name: 'nobody', score: 0 }, { name: 'nobody', score: 0 }];
     let storage = [JSON.parse(localStorage.getItem("rank0")), JSON.parse(localStorage.getItem("rank1")), JSON.parse(localStorage.getItem("rank2")), JSON.parse(localStorage.getItem("rank3")), JSON.parse(localStorage.getItem("rank4")), JSON.parse(localStorage.getItem("rank5")), JSON.parse(localStorage.getItem("rank6")), JSON.parse(localStorage.getItem("rank7")), JSON.parse(localStorage.getItem("rank8"))];
     for (let i = 0; i <= 8; i++) {
       if (storage[i] != null) {
@@ -211,8 +203,7 @@
         textRankPlayer[i].innerText = rank[i].name;
       }
     }
-
-
+    console.log(storage);
 
     // 點擊"開始"
     btnStart.onclick = () => {
@@ -370,7 +361,6 @@
       }
     }
 
-
     // 遊戲點擊事件&分數、時間
     // TODO 被點擊時換圖片、音效
     for (let hole of holes) {
@@ -419,7 +409,6 @@
         }
       }
     }
-    console.log(storage);
         // TODO 遊戲中鍵盤可以使用 ｓ 當作滑鼠點擊
         // document.onkeydown = (event) => {
         //     const key = event.key;
