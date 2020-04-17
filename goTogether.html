@@ -48,54 +48,56 @@
 
   </div>
 
+  <div id="btn-left">></div>
   <div id="left">
-    <p class="sideP">排行榜</p>
     <div>
-      <span class="text-ranknum">1</span>&ensp;
-      <span class="text-rankplayer">nobody</span>
-      <span class="text-rankscore">0</span>
+      <p class="sideP">Top9 排行榜</p>
+      <div class="rankFrame">
+        <span class="text-ranknum red">1</span>&ensp;
+        <span class="text-rankplayer red">nobody</span>
+        <span class="text-rankscore red">0</span>
+      </div>
+      <div class="rankFrame">
+        <span class="text-ranknum yellow">2</span>&ensp;
+        <span class="text-rankplayer yellow">nobody</span>
+        <span class="text-rankscore yellow">0</span>
+      </div>
+      <div class="rankFrame">
+        <span class="text-ranknum">3</span>&ensp;
+        <span class="text-rankplayer">nobody</span>
+        <span class="text-rankscore">0</span>
+      </div>
+      <div class="rankFrame">
+        <span class="text-ranknum">4</span>&ensp;
+        <span class="text-rankplayer">nobody</span>
+        <span class="text-rankscore">0</span>
+      </div>
+      <div class="rankFrame">
+        <span class="text-ranknum">5</span>&ensp;
+        <span class="text-rankplayer">nobody</span>
+        <span class="text-rankscore">0</span>
+      </div>
+      <div class="rankFrame">
+        <span class="text-ranknum">6</span>&ensp;
+        <span class="text-rankplayer">nobody</span>
+        <span class="text-rankscore">0</span>
+      </div>
+      <div class="rankFrame">
+        <span class="text-ranknum">7</span>&ensp;
+        <span class="text-rankplayer">nobody</span>
+        <span class="text-rankscore">0</span>
+      </div>
+      <div class="rankFrame">
+        <span class="text-ranknum">8</span>&ensp;
+        <span class="text-rankplayer">nobody</span>
+        <span class="text-rankscore">0</span>
+      </div>
+      <div class="rankFrame">
+        <span class="text-ranknum">9</span>&ensp;
+        <span class="text-rankplayer">nobody</span>
+        <span class="text-rankscore">0</span>
+      </div>
     </div>
-    <div>
-      <span class="text-ranknum">2</span>&ensp;
-      <span class="text-rankplayer">nobody</span>
-      <span class="text-rankscore">0</span>
-    </div>
-    <div>
-      <span class="text-ranknum">3</span>&ensp;
-      <span class="text-rankplayer">nobody</span>
-      <span class="text-rankscore">0</span>
-    </div>
-    <div>
-      <span class="text-ranknum">4</span>&ensp;
-      <span class="text-rankplayer">nobody</span>
-      <span class="text-rankscore">0</span>
-    </div>
-    <div>
-      <span class="text-ranknum">5</span>&ensp;
-      <span class="text-rankplayer">nobody</span>
-      <span class="text-rankscore">0</span>
-    </div>
-    <div>
-      <span class="text-ranknum">6</span>&ensp;
-      <span class="text-rankplayer">nobody</span>
-      <span class="text-rankscore">0</span>
-    </div>
-    <div>
-      <span class="text-ranknum">7</span>&ensp;
-      <span class="text-rankplayer">nobody</span>
-      <span class="text-rankscore">0</span>
-    </div>
-    <div>
-      <span class="text-ranknum">8</span>&ensp;
-      <span class="text-rankplayer">nobody</span>
-      <span class="text-rankscore">0</span>
-    </div>
-    <div>
-      <span class="text-ranknum">9</span>&ensp;
-      <span class="text-rankplayer">nobody</span>
-      <span class="text-rankscore">0</span>
-    </div>
-
   </div>
 
   <div id="right">
@@ -154,6 +156,7 @@
 
   <div id="btn-start">Go</div>
 
+  <script src="/js/jquery-3.5.0.min.js"></script>
   <script>
     // top 剩餘時間、當前分數
     const textTime = document.getElementById("text-timeleft");
@@ -173,6 +176,12 @@
     const rand = (min, max) => {
       return Math.round(Math.random() * (max - min) + min);
     }
+
+    // 左右側點擊收合(為了方便先用JQuery)
+    $("#btn-left").click(function () {
+      $("#left").slideToggle(1000);
+      $("this").css("display", none);
+    });
 
     // 圖片插入區
     let imgFish = "/images/fish.png";
