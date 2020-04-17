@@ -226,7 +226,7 @@
       // 重置分數、起始時間
       score = 0;
       textScore.innerText = `Score：${score} 分`;
-      timeLeft = 30;
+      timeLeft = 10;
       textTime.innerText = `${timeLeft} s`;
 
       gameRound = setInterval(game, 2500);
@@ -236,9 +236,10 @@
 
     // 遊戲進行
     const game = () => {
-      // 清空 hole 圖片
+      // 清空 hole 圖片、動畫
       for (let hole of holes) {
         hole.src = "";
+        hole.style.animation = "";
       }
       // 重置 jumps隨機格子陣列、imgp圖片機率
       jumps = [];
@@ -300,9 +301,10 @@
         inGame = false;
         clearInterval(timer);
         clearInterval(gameRound);
-        // 清空圖片
+        // 清空圖片、動畫
         for (let hole of holes) {
           hole.src = "";
+          hole.style.animation = "";
         }
 
         // setTimeout 為了讓秒數跑到 0s
