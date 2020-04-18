@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <!-- TODO 3初始圖片及UI修改、1背景音效、字體大小隨縮放、2CSS圖片動畫(設定難易度用秒數更改)、4alert、提醒樣式、5Stop鍵 -->
+  <!-- TODO 2初始圖片及UI修改、1CSS圖片動畫(設定難易度用秒數更改)、3alert、提醒樣式、4Stop鍵 -->
   <audio id="bgMusic" src="/musics/AI_2.mp3" autoplay loop></audio>
 
   <div id="top">
@@ -205,9 +205,21 @@
     const correct = new Audio; correct.src = "/musics/correct.mp3";
     const eat = new Audio; eat.src = "/musics/eat.mp3";
     const hope = new Audio; hope.src = "/musics/hope.mp3";
-    const waring = new Audio; waring.src = "/musics/waring2.mp3";
-    const evilLaugh = new Audio; devilLaugh.src = "/musics/devilLaugh.mp3";
-    const hope = new Audio; hope.src = "/musics/hope.mp3";
+    const warning = new Audio; warning.src = "/musics/warning.mp3";
+    const evilLaugh = new Audio; evilLaugh.src = "/musics/evil-laugh.mp3";
+    const translate = new Audio; translate.src = "/musics/translate.mp3";
+    const surprise = new Audio; surprise.src = "/musics/surprise.mp3";
+
+    // 音量區
+    bgMusic.volume = 0.3;
+    bubble.volume = 0.5;
+    correct.volume = 0.5;
+    eat.volume = 0.5;
+    hope.volume = 0.5;
+    warning.volume = 0.5;
+    evilLaugh.volume = 0.5;
+    translate.volume = 0.5;
+    surprise.volume = 0.5;
 
     // 遊戲變數基本設定區
     let score = 0;
@@ -229,7 +241,6 @@
     }
     console.log(storage);
 
-    bgMusic.volume = 0.3;
     // 點擊"開始"
     btnStart.onclick = () => {
       // 讓btnStart 消失
@@ -328,6 +339,8 @@
           // TODO 進入排行榜(分數大於第9名才會進榜，同分不會進)
           // 進榜對話框
           if (storage[8] == null || score > rank[8].score) {
+            // TODO why音效輸入完才會出現?
+            hope.play();
             const input = prompt("太棒了 ～ 恭喜你進入前 Top 9 ！🎏\n請寫下你的名字，因你是尊貴的勇者 🤴👸");
             // 有留名字才會加進排行榜
             if (input != null || input.trim() !== '') {
@@ -376,9 +389,11 @@
             }
           }
           else if (score == rank[8].score) {
+            translate.play();
             alert("尊貴的勇士，你雖與第9名同分，但尚還不能進榜，請繼續堅持呀 ~ 突破自己💪");
           }
           else if (score < rank[8].score) {
+            surprise.play();
             alert("加油啊~讓我們努力奔著目標向前 🔥");
           }
 
@@ -432,7 +447,8 @@
         else if (inGame && hole.src.includes(imgRedEvil)) {
           // TODO 網子變大的動畫、設定秒數、還原
           hole.src = "/images/translate/net.png";
-          waring.play();
+          hole.style.animation = "net 2.5s";
+          warning.play();
           score--;
           textScore.innerText = `Score：${score} 分`;
         }
@@ -447,14 +463,15 @@
         }
       }
     }
-        // TODO 遊戲中鍵盤可以使用 ｓ 當作滑鼠點擊
-        // document.onkeydown = (event) => {
-        //     const key = event.key;
-        //     if (key == "s") {
-        //         const screen = document.getElementsByTagName("body");
-        //         screen.onmousedown();
-        //     }
-        // }
+
+  // TODO 遊戲中鍵盤可以使用 ｓ 當作滑鼠點擊
+  // document.onkeydown = (event) => {
+  //     const key = event.key;
+  //     if (key == "s") {
+  //         const screen = document.getElementsByTagName("body");
+  //         screen.onmousedown();
+  //     }
+  // }
   </script>
 
 </body>
