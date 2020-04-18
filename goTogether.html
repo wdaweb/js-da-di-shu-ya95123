@@ -211,7 +211,7 @@
     const surprise = new Audio; surprise.src = "/musics/surprise.mp3";
 
     // 音量區
-    bgMusic.volume = 0.3;
+    bgMusic.volume = 0.5;
     bubble.volume = 0.5;
     correct.volume = 0.5;
     eat.volume = 0.5;
@@ -278,7 +278,7 @@
         }
         jumps.push(randJump);
 
-        // 已被選的隨機格子，再按"機率"選圖片跳出
+        // 已被選的隨機格子，再按"機率"選圖片跳出 (從1開始是為了要讓機率均等1~100個)
         imgp = rand(1, 100);
         // console.log(imgp);
         if (imgp > 0 && imgp <= 30) {
@@ -341,7 +341,7 @@
           if (storage[8] == null || score > rank[8].score) {
             // TODO why音效輸入完才會出現?
             hope.play();
-            const input = prompt("太棒了 ～ 恭喜你進入前 Top 9 ！🎏\n請寫下你的名字，因你是尊貴的勇者 🤴👸");
+            const input = prompt("太棒了 ～ 恭喜你進入前 Top 9 ！🎏\n請寫下你的名字，因你是尊貴的勇者 🤴👸\n(中文5字以內，英文7字以內)");
             // 有留名字才會加進排行榜
             if (input != null || input.trim() !== '') {
               // 排行比較
