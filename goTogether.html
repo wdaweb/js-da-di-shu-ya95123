@@ -200,6 +200,15 @@
     let imgp = 0;
     // const imgs = [imgFish, imgSad, imgSushi, imgEgg, imgRedEvil, imgYellowEvil];
 
+    // 音效區
+    const bubble = new Audio; bubble.src = "/musics/bubble.mp3";
+    const correct = new Audio; correct.src = "/musics/correct.mp3";
+    const eat = new Audio; eat.src = "/musics/eat.mp3";
+    const hope = new Audio; hope.src = "/musics/hope.mp3";
+    const waring = new Audio; waring.src = "/musics/waring2.mp3";
+    const evilLaugh = new Audio; devilLaugh.src = "/musics/devilLaugh.mp3";
+    const hope = new Audio; hope.src = "/musics/hope.mp3";
+
     // 遊戲變數基本設定區
     let score = 0;
     let inGame = false;
@@ -221,7 +230,6 @@
     console.log(storage);
 
     bgMusic.volume = 0.3;
-
     // 點擊"開始"
     btnStart.onclick = () => {
       // 讓btnStart 消失
@@ -392,8 +400,8 @@
       hole.onmousedown = () => {
         // 魚 +1分 +1秒
         if (inGame && hole.src.includes(imgFish)) {
-          // console.log(hole.src);
-          hole.src = "/images/translate/fish-love.png"
+          hole.src = "/images/translate/fish-love.png";
+          bubble.play();
           score++;
           textScore.innerText = `Score：${score} 分`;
           timeLeft++;
@@ -401,32 +409,37 @@
         }
         // 難過 +3分
         else if (inGame && hole.src.includes(imgSad)) {
-          hole.src = "/images/translate/love-people.png"
+          hole.src = "/images/translate/love-people.png";
+          correct.play();
           score += 3;
           textScore.innerText = `Score：${score} 分`;
         }
         // 壽司 +2秒
         else if (inGame && hole.src.includes(imgSushi)) {
-          hole.src = "/images/translate/sushi-eatten.png"
+          hole.src = "/images/translate/sushi-eatten.png";
+          eat.play();
           timeLeft += 2;
           textTime.innerText = `${timeLeft} s`;
         }
         // 彩蛋 +5分
         else if (inGame && hole.src.includes(imgEgg)) {
-          hole.src = "/images/translate/egg-love.png"
+          hole.src = "/images/translate/egg-love.png";
+          hope.play();
           score += 5;
           textScore.innerText = `Score：${score} 分`;
         }
         // 紅惡 -1分
         else if (inGame && hole.src.includes(imgRedEvil)) {
           // TODO 網子變大的動畫、設定秒數、還原
-          hole.src = "/images/translate/net.png"
+          hole.src = "/images/translate/net.png";
+          waring.play();
           score--;
           textScore.innerText = `Score：${score} 分`;
         }
         // 黃惡 -2分 -1秒
         else if (inGame && hole.src.includes(imgYellowEvil)) {
-          hole.src = "/images/translate/yellow-evil-black-love.png"
+          hole.src = "/images/translate/yellow-evil-black-love.png";
+          evilLaugh.play();
           score -= 2;
           textScore.innerText = `Score：${score} 分`;
           timeLeft--;
