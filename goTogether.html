@@ -30,7 +30,7 @@
           <td class="exLeft" rowspan="2"><img class="picEx" src="/images/sushi.png" alt="sushi"></td>
           <td class="exCalc red">+0分</td>
           <td class="exLeft" rowspan="2"><img class="picEx" src="/images/egg.png" alt="egg"></td>
-          <td class="exCalc red">+5分</td>
+          <td class="exCalc red">+7分</td>
           <td class="exLeft" rowspan="2"><img class="picEx" src="/images/red-evil.png" alt="red-evil"></td>
           <td class="exCalc">-1分</td>
           <td class="exLeft" rowspan="2"><img class="picEx" src="/images/yellow-evil.png" alt="yellow-evil">
@@ -440,7 +440,7 @@
         else if (inGame && hole.src.includes(imgEgg)) {
           hole.src = "/images/translate/egg-love.png";
           hope.play();
-          score += 5;
+          score += 7;
           textScore.innerText = `Score：${score} 分`;
         }
         // 紅惡 -1分
