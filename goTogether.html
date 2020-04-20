@@ -12,9 +12,10 @@
 </head>
 
 <body>
-  <!-- TODO 2初始圖片及UI修改、1CSS圖片動畫(設定難易度用秒數更改)、3alert、提醒樣式、4Stop鍵 -->
-  <audio id="bgMusic" src="musics/AI_2.mp3" autoplay="autoplay" loop="loop"></audio>
+  <!-- TODO 2初始圖片及UI修改、1CSS圖片動畫(設定難易度用秒數更改)、3alert、提醒樣式、4Stop鍵 *音樂播放按鈕-->
+  <audio id="bgMusic" src="musics/AI_2.mp3" autoplay loop></audio>
   <!-- <bgsoud id="bgMusic" src="musics/AI_2.mp3" autostart=true loop=-1></bgsoud> -->
+  <!-- <embed id="bgMusic" src="musics/AI_2.mp3" loop="true" autostart="true" hidden="true"> -->
 
   <div id="top">
     <p id="text-timeleft">30 s</p>
@@ -162,7 +163,8 @@
 
   <script src="js/jquery-3.5.0.min.js"></script>
   <script>
-    const bgMusic = document.getElementById("bgMusic");
+    // const bgMusic = document.getElementById("bgMusic");
+    // bgMusic.muted = true;
     // top 剩餘時間、當前分數
     const textTime = document.getElementById("text-timeleft");
     const textScore = document.getElementById("text-score");
@@ -212,7 +214,7 @@
     const surprise = new Audio; surprise.src = "musics/surprise.mp3";
     // const bgMusic = new Audio; bgMusic.src = "musics/AI_2.mp3";
     // const bgMusic = new Audio("musics/AI_2.mp3");
-    // window.open = () => {
+    // window.loding = () => {
     //   bgMusic.play();
     // }
 
